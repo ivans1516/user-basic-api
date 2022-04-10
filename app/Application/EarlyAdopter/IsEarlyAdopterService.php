@@ -37,4 +37,8 @@ class IsEarlyAdopterService
 
         return $isEarlyAdopter;
     }
+
+    public function getUserList(string $command):array{
+        return $this->userDataSource->getUserList($command);
+    }
 }
