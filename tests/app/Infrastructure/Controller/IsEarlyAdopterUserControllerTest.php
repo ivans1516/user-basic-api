@@ -75,4 +75,5 @@ class IsEarlyAdopterUserControllerTest extends TestCase
 
         $response->assertStatus(Response::HTTP_OK)->assertExactJson(['earlyAdopter' => false]);
     }
+
 }

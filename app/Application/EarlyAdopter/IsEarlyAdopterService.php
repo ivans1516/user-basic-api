@@ -4,6 +4,7 @@ namespace App\Application\EarlyAdopter;
 
 use App\Application\UserDataSource\UserDataSource;
 use Exception;
+use phpDocumentor\Reflection\Types\AbstractList;
 
 class IsEarlyAdopterService
 {
@@ -36,5 +37,9 @@ class IsEarlyAdopterService
         }
 
         return $isEarlyAdopter;
+    }
+
+    public function getUserList():array{
+        return $this->userDataSource->getUserList();
     }
 }

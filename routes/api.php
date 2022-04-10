@@ -1,5 +1,5 @@
 <?php
-
+use App\Infrastructure\Controllers\GetEmptyListController;
 use App\Infrastructure\Controllers\GetUserController;
 use App\Infrastructure\Controllers\IsEarlyAdopterUserController;
 use App\Infrastructure\Controllers\StatusController;
@@ -25,5 +25,7 @@ Route::get(
     StatusController::class
 );
 
+Route::get('users/list', GetEmptyListController::class);
 Route::get('user/{email}', IsEarlyAdopterUserController::class);
 Route::get('user/id/{userId}', GetUserController::class);
+
