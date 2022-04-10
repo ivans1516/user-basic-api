@@ -8,11 +8,8 @@ use Illuminate\Routing\Controller as BaseController;
 
 class GetUserController extends BaseController
 {
-    public function __invoke(string $userId): JsonResponse
+    public function __invoke(): JsonResponse
     {
-        if(strcmp($userId, 'list') == 0){
-            return response()->json([]);
-        }
         return response()->json([
             'error' => "user does not exist"
         ], Response::HTTP_BAD_REQUEST);

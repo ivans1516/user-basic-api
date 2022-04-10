@@ -9,7 +9,7 @@ use App\Domain\User;
 use Exception;
 use Mockery;
 use PHPUnit\Framework\TestCase;
-use Tests\app\Doubles\FakeUserDataSource;
+use Tests\app\Doubles\FakeUserData;
 
 class isEarlyAdopterFakeServiceTest extends TestCase
 {
@@ -22,7 +22,7 @@ class isEarlyAdopterFakeServiceTest extends TestCase
     {
         parent::setUp();
 
-        $this->isEarlyAdopterService = new IsEarlyAdopterService(new FakeUserDataSource());
+        $this->isEarlyAdopterService = new IsEarlyAdopterService(new FakeUserData());
     }
 
     /**
@@ -33,15 +33,5 @@ class isEarlyAdopterFakeServiceTest extends TestCase
         $isUserEarlyAdopterResponse = $this->isEarlyAdopterService->getUserList("empty");
 
         $this->assertEquals([],$isUserEarlyAdopterResponse);
-    }
-
-    /**
-     * @test
-     */
-    public function checkContentInList()
-    {
-        $isUserEarlyAdopterResponse = $this->isEarlyAdopterService->getUserList("list");
-
-        $this->assertEquals(["{id: '1'}","{id: '2'}","{id: '3'}"],$isUserEarlyAdopterResponse);
     }
 }
