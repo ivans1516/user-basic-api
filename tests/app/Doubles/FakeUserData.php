@@ -15,6 +15,4 @@ class FakeUserData implements UserDataSource
     {
         return [];
     }
-
-
 }
