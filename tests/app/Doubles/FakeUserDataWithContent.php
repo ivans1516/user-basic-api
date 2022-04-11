@@ -2,10 +2,13 @@
 
 
 namespace Tests\app\Doubles;
+
+
+namespace Tests\app\Doubles;
 use App\Application\UserDataSource\UserDataSource;
 use App\Domain\User;
 
-class FakeUserData implements UserDataSource
+class FakeUserDataWithContent implements UserDataSource
 {
     public function findByEmail(string $email): User
     {
@@ -13,8 +16,6 @@ class FakeUserData implements UserDataSource
 
     public function getUserList(): array
     {
-        return [];
+        return array("{id: '1'}", "{id: '2'}", "{id: '3'}");
     }
-
-
 }
