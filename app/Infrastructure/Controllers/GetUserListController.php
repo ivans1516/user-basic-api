@@ -7,6 +7,7 @@ use App\Application\EarlyAdopter\GetUserListService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller as BaseController;
+use Exception;
 
 class GetUserListController extends BaseController
 {
@@ -26,21 +27,17 @@ class GetUserListController extends BaseController
             if (empty($list)){
                 return response()->json([]);
             }else{
+                $array = array();
                 $text = "";
                 $i = 0;
                 foreach ($list as $user){
-                    if($i == 0){
-                        $text = "{id: '".$user."'}";
-                    }else{
-                        $text .= ",{id: '".$user."'}";
-                    }
-                    $i +=1;
+                    array_push($array,"{id: '".$user."'}");
                 }
-                return response()->json([$text], Response::HTTP_OK);
+                return response()->json($array, Response::HTTP_OK);
             }
         }catch (Exception $exception) {
             return response()->json([
-                'error' => "An error has occurred"
+                'error' => $exception->getMessage()
             ], Response::HTTP_BAD_REQUEST);
         }
     }
