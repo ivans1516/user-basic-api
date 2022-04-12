@@ -62,5 +62,18 @@ class GetUserListControllerTest extends TestCase
         $response->assertExactJson(["{id: '1'}","{id: '2'}","{id: '3'}"]);
     }
 
+    /**
+     * @test
+     */
+    public function getGenericError()
+    {
+        $this->userDataSource
+            ->expects('getUserList')
+            ->once()
+            ->andThrow(new Exception('There was an issue in the request process'));
 
+        $response = $this->get('/api/users/list');
+
+        $response->assertStatus(Response::HTTP_BAD_REQUEST)->assertExactJson(['error' => 'There was an issue in the request process']);
+    }
 }
