@@ -59,11 +59,8 @@ class GetUserListControllerTest extends TestCase
 
         $response = $this->get('/api/users/list');
 
-        $response->assertExactJson(["{id: '1'},{id: '2'},{id: '3'}"]);
+        $response->assertExactJson(["{id: '1'}","{id: '2'}","{id: '3'}"]);
     }
-
-
-
 
 
 }
