@@ -8,8 +8,7 @@ use App\Domain\User;
 use Exception;
 use Illuminate\Http\Response;
 use Mockery;
-use PHPUnit\Framework\Test;
-use Tests\app\Doubles\FakeUserData;
+use app\Infrastructure\Doubles\FakeUserData;
 use Tests\TestCase;
 
 class GetUserListControllerTest extends TestCase

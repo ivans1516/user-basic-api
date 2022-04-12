@@ -16,5 +16,9 @@ class FakeUserData implements UserDataSource
         return [];
     }
 
+    public function findById(string $userId): User
+    {
+    }
+
 
 }

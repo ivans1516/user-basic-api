@@ -1,7 +1,7 @@
 <?php
 
 
-namespace App\Application\EarlyAdopter;
+namespace App\Application\GetUserList;
 
 use App\Application\UserDataSource\UserDataSource;
 use Exception;

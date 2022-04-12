@@ -3,7 +3,7 @@
 
 namespace App\Infrastructure\Controllers;
 
-use App\Application\EarlyAdopter\GetUserListService;
+use App\Application\GetUserList\GetUserListService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller as BaseController;
