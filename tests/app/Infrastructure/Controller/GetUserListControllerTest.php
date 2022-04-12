@@ -54,14 +54,16 @@ class GetUserListControllerTest extends TestCase
 
         $this->userDataSource
             ->expects('getUserList')
-            ->with()
             ->once()
-            ->andReturn(["{id: '".$user1->getId()."'}",
-                "{id: '".$user2->getId()."'}",
-                "{id: '".$user3->getId()."'}"]);
+            ->andReturn([$user1->getId(),$user2->getId(),$user3->getId()]);
 
         $response = $this->get('/api/users/list');
 
-        $response->assertExactJson(["{id: '1'}", "{id: '2'}", "{id: '3'}"]);
+        $response->assertExactJson(["{id: '1'},{id: '2'},{id: '3'}"]);
     }
+
+
+
+
+
 }

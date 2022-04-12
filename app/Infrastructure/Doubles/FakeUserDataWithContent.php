@@ -16,6 +16,6 @@ class FakeUserDataWithContent implements UserDataSource
 
     public function getUserList(): array
     {
-        return array("{id: '1'}", "{id: '2'}", "{id: '3'}");
+        return array(1,2,3);
     }
 }
