@@ -8,7 +8,7 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller as BaseController;
 
-class GetEmptyListController extends BaseController
+class GetUserListController extends BaseController
 {
 
     private $isEarlyAdopterService;

@@ -10,6 +10,7 @@ use Exception;
 use Illuminate\Http\Response;
 use Mockery;
 use Tests\app\Doubles\FakeUserData;
+use Tests\app\Doubles\FakeUserDataWithContent;
 use Tests\TestCase;
 
 class GetFakeUserControllerTest extends Testcase
@@ -21,7 +22,6 @@ class GetFakeUserControllerTest extends Testcase
     {
         parent::setUp();
 
-        $this->app->bind(UserDataSource::class, fn () => new FakeUserData());
     }
 
     /**
@@ -29,8 +29,22 @@ class GetFakeUserControllerTest extends Testcase
      */
     public function isEmptyUserList()
     {
+        $this->app->bind(UserDataSource::class, fn () => new FakeUserData());
+
         $response = $this->get('/api/users/list');
 
         $response->assertExactJson([]);
+    }
+
+    /**
+     * @test
+     */
+    public function checkUsersInList()
+    {
+        $this->app->bind(UserDataSource::class, fn () => new FakeUserDataWithContent());
+
+        $response = $this->get('/api/users/list');
+
+        $response->assertExactJson(["{id: '1'}", "{id: '2'}", "{id: '3'}"]);
     }
 }
