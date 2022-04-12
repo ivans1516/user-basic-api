@@ -5,12 +5,8 @@ namespace Tests\app\Infrastructure\Controller;
 
 
 use App\Application\UserDataSource\UserDataSource;
-use App\Domain\User;
-use Exception;
-use Illuminate\Http\Response;
-use Mockery;
-use Tests\app\Doubles\FakeUserData;
-use Tests\app\Doubles\FakeUserDataWithContent;
+use App\Infrastructure\Doubles\FakeUserData;
+use App\Infrastructure\Doubles\FakeUserDataWithContent;
 use Tests\TestCase;
 
 class GetFakeUserControllerTest extends Testcase
@@ -27,7 +23,7 @@ class GetFakeUserControllerTest extends Testcase
     /**
      * @test
      */
-    public function isEmptyUserList()
+    public function getEmptyUserList()
     {
         $this->app->bind(UserDataSource::class, fn () => new FakeUserData());
 
